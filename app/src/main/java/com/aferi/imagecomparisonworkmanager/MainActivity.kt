@@ -92,6 +92,10 @@ class MainActivity : ComponentActivity() {
                     KEY_CONTENT_URI to uri.toString(),
                     KEY_COMPARISION_Threshold to 1024 * 20L
                 )
+            ).setConstraints(
+                Constraints(
+                    requiresStorageNotLow = true
+                )
             ).build()
         viewModel.updateWorkId(request.id)
         workManager.enqueue(request)
